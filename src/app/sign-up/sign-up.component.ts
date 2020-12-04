@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs';
 })
 export class SignUpComponent implements OnInit, OnDestroy {
   signUpFormControl: FormGroup;
-  private subscription = new Subscription();
+  // private subscription = new Subscription();
 
   constructor(private fb: FormBuilder) {}
 
@@ -27,11 +27,11 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
   submitForm(): void {
-    alert(`${this.signUpFormControl.value.firstName}`);
+    alert(`${this.signUpFormControl.value.firstName}  ${this.signUpFormControl.value.lastName} ${this.signUpFormControl.value.email} ${this.signUpFormControl.value.password} ${this.signUpFormControl.value.confPassword} `);
   }
   passwordMatchValidator(frm: FormGroup): any{
     if (frm.controls.password.value ===
