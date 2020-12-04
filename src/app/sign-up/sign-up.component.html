@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="signUpFormControl" (submit)="submitForm()">
+      <mat-form-field class="form-field">
+        <mat-label> First Name
+        </mat-label>
+        <input matInput
+               formControlName="firstName"
+               required
+        >
+        <mat-error *ngIf="signUpFormControl.controls.password.touched && signUpFormControl.controls.firstName.invalid">
+          <span *ngIf="signUpFormControl.controls.firstName.errors.required">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label> Last Name
+        </mat-label>
+        <input matInput
+               formControlName="lastName"
+               required
+        >
+        <mat-error *ngIf="signUpFormControl.controls.password.touched && signUpFormControl.controls.firstName.invalid">
+          <span *ngIf="signUpFormControl.controls.firstName.errors.required">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label> E-mail
+        </mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="signUpFormControl.controls.email.touched && signUpFormControl.controls.email.invalid">
+          <span *ngIf="signUpFormControl.controls.email.errors.required">This field is mandatory.</span>
+          <span *ngIf="signUpFormControl.controls.email.errors.pattern">This field is invalid.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label> Password
+        </mat-label>
+        <input matInput formControlName="password" type="password" required>
+        <mat-error *ngIf="signUpFormControl.controls.password.touched && signUpFormControl.controls.password.invalid">
+          <span *ngIf="signUpFormControl.controls.password.errors.required">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" >
+        <mat-label> Repeat Password
+        </mat-label>
+        <input matInput formControlName="confPassword" type="password" required>
+        <mat-error *ngIf="signUpFormControl.controls.password.touched && signUpFormControl.controls.password.invalid">
+          <span *ngIf="signUpFormControl.controls.password.errors.required">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+      <button [disabled]="signUpFormControl.status === 'INVALID'" mat-raised-button color="primary" type="submit">Log In</button>
+    </form>
+  </div>
+</div>
